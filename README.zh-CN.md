@@ -1,6 +1,9 @@
+<div align="right">语言: <a title="English" href="README.md">:us:</a>:cn:</div>
+
 # Amber
 
 [![Build Status](https://travis-ci.org/Mitscherlich/hexo-theme-amber.svg?branch=master)](https://travis-ci.org/Mitscherlich/hexo-theme-amber)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ![Preview](docs/assets/Preview.png)
 

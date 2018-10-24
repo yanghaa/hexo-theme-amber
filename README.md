@@ -1,6 +1,9 @@
+<div align="right">Language: :us:<a title="Chinese" href="README.zh-CN.md">:cn:</a></div>
+
 # Amber
 
 [![Build Status](https://travis-ci.org/Mitscherlich/hexo-theme-amber.svg?branch=master)](https://travis-ci.org/Mitscherlich/hexo-theme-amber)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Hexo theme based on Vue.js and Bootstrap for [mitscherlich.me](https://mitscherlich.me).
 
