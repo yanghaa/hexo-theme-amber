@@ -13,7 +13,7 @@
       <div class="card post-cover" slot="img">
         <div class="post-cover-mask">
           <img
-            v-if="post.cover !== null && post.cover.startsWith('/assets/')"
+            v-if="post.cover !== null && (post.cover.startsWith('/') || post.cover.startsWith('http'))"
             :src="post.cover"
             :alt="post.slug" />
         </div>
