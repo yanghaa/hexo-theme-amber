@@ -3,7 +3,7 @@ language: node_js
 sudo: false
 
 node_js:
-  - "node"
+  - "lts/*"
 
 cache:
   apt: true
@@ -12,14 +12,48 @@ cache:
     - node_modules
     - test/node_modules
 
+install:
+  # install theme dependencies
+  - yarn install --pure-lockfile
+  - pushd test
+  # install test blog dependencies
+  - yarn install --pure-lockfile
+  - popd
+
 script:
   # build theme static files
-  - yarn install --pure-lockfile
-  # copy generated files to test folder
-  - cp -R layout test/themes/amber/layout
-  - cp -R source test/themes/amber/source
-  - cp _config.yml test/themes/amber/_config.yml
-  # test generate hexo site
-  - cd test
-  - yarn install --pure-lockfile
   - npm run build
+  # test generate hexo site
+  - pushd test
+  # copy generated files to test folder
+  - cp -R ../layout themes/amber/layout
+  - cp -R ../source themes/amber/source
+  - cp -R ../scripts themes/amber/scripts
+  - cp ../_config.yml themes/amber/_config.yml
+  # build test blog
+  - npm run build
+  - popd
+
+after_success:
+  # package generated files
+  - mkdir dist && pushd dist
+  - cp -R ../layout layout
+  - cp -R ../source source
+  - cp -R ../scripts scripts
+  - cp ../_config.yml _config.yml
+  - cp ../README.md README.md
+  - cp ../README.zh-CN.md README.zh-CN.md
+  - cp ../LICENSE LICENSE
+  - popd
+
+deploy:
+  provider: pages
+  local-dir: dist
+  target-branch: dist
+  email: $GITHUB_EMAIL
+  name: $GITHUB_NAME
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
