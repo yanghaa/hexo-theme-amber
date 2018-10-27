@@ -33,7 +33,7 @@ function filterCodeBlock(str) {
     str = str.replace(/<figure class="highlight ([a-zA-Z]+)">.*?<\/figure>/, function() {
       let language = RegExp.$1 || 'plain';
       let lastMatch = RegExp.lastMatch;
-      lastMatch = lastMatch.replace(/<figure class="highlight /, '<figure class="iseeu highlight /');
+      lastMatch = lastMatch.replace(/<figure class="highlight /, '<figure class="iseeu highlight ');
       return '<div class="highlight-wrap"' + attributesStr + 'data-rel="' + language.toUpperCase() + '">' + lastMatch + '</div>';
     });
   };
@@ -95,15 +95,15 @@ function generator(cfg, site) {
       return post.published;
     }),
 
-    posts_props = (function () {
+    posts_props = (function() {
       const props = restful.posts_props;
 
-      return function (name, val) {
+      return function(name, val) {
         return props[name] ? (typeof val === 'function' ? val() : val) : null;
       }
     })(),
 
-    postMap = function (post) {
+    postMap = function(post) {
       return {
         title: posts_props('title', post.title),
         slug: posts_props('slug', post.slug),
