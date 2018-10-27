@@ -17,7 +17,6 @@ via this repo:
 
 ```bash
 $ git clone https://github.com/Mitscherlich/hexo-theme-amber.git themes/amber
-$ cd themes/amber && yarn install --pure-lockfile
 ```
 
 Then modify you `_config.yml`:
@@ -37,10 +36,17 @@ $ hexo clean && hexo serve
 
 ## Develop
 
+This theme provide prebuild static assets on default branch. You may need to checkout [`master`](https://github.com/Mitscherlich/hexo-theme-amber/tree/master) branch if you want to custom the theme. There is no difference with Vue development you are familiar with:
+
+```bash
+$ git clone https://github.com/Mitscherlich/hexo-theme-amber.git -b master themes/amber-dev
+$ cd themes/amber-dev && npm install # Also, yarn will be ok
+```
+
 Just follow the installation, but notice that you have to run both `hexo serve` and `yarn serve` at the same time. Otherwise you will not get the posts data.
 
 ```bash
-$ cd /path/to/blog/theme/amber
+$ cd /path/to/blog/theme/amber-dev
 $ yarn serve
 ```
 
