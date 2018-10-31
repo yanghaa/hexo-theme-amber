@@ -15,16 +15,16 @@ cache:
 install:
   # install theme dependencies
   - yarn install --pure-lockfile
-  - pushd test
+  - cd test
   # install test blog dependencies
   - yarn install --pure-lockfile
-  - popd
+  - cd -
 
 script:
   # build theme static files
   - npm run build
   # test generate hexo site
-  - pushd test
+  - cd test
   # copy generated files to test folder
   - cp -R ../layout themes/amber/layout
   - cp -R ../source themes/amber/source
@@ -32,11 +32,11 @@ script:
   - cp ../_config.yml themes/amber/_config.yml
   # build test blog
   - npm run build
-  - popd
+  - cd -
 
 after_success:
   # package generated files
-  - mkdir dist && pushd dist
+  - mkdir dist && cd dist
   - cp -R ../layout layout
   - cp -R ../source source
   - cp -R ../scripts scripts
@@ -44,7 +44,7 @@ after_success:
   - cp ../README.md README.md
   - cp ../README.zh-CN.md README.zh-CN.md
   - cp ../LICENSE LICENSE
-  - popd
+  - cd -
 
 deploy:
   provider: pages
