@@ -63,6 +63,7 @@
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 import { renderMathJax } from '@/common/js/mathjax';
+import { renderDPlayer } from '@/common/js/dplayer';
 import { Article, Page } from '@/models/article';
 import Gitalk from '@/base/comment/Gitalk.vue';
 
@@ -103,6 +104,9 @@ export default class Detailable extends Vue {
     window.document.title = `${this.$t(title)} | ${this.$site.title}`;
     this.$nextTick(function() {
       renderMathJax(this.$refs['blog-post-content']);
+    });
+    this.$nextTick(() => {
+      renderDPlayer(this.$refs['blog-post-content']);
     });
   }
 

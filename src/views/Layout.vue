@@ -1,47 +1,47 @@
 <template>
-  <main id="app">
-    <!-- #wp-header -->
-    <b-header id="wp-header" />
+  <transition name="fade" mode="out-in">
+    <b-img v-if="!ready" src="/img/loading.gif" class="rubik"></b-img>
 
-    <!-- #wp-body -->
-    <main id="wp-body">
-      <b-container>
-        <b-row>
-          <!-- .blog-main -->
-          <transition name="fade">
-            <b-col class="blog-main" :lg="showSidebar?8:12">
+    <main id="app" v-else>
+      <!-- #wp-header -->
+      <b-header id="wp-header" />
+
+      <!-- #wp-body -->
+      <main id="wp-body">
+        <b-container>
+          <b-row>
+            <!-- .blog-main -->
+            <b-col class="blog-main" lg="8">
               <!-- content -->
-                <transition name="fade" mode="out-in">
-                  <keep-alive>
-                    <router-view />
-                  </keep-alive>
-                </transition>
+              <transition name="fade" mode="out-in">
+                <keep-alive>
+                  <router-view />
+                </keep-alive>
+              </transition>
             </b-col>
-          </transition>
 
-          <!-- #wp-sidebar -->
-          <transition name="fade">
+            <!-- #wp-sidebar -->
             <b-sidebar
+              v-if="ready"
               id="wp-sidebar"
               class="blog-sidebar col-lg-4"
-              v-if="showSidebar"
               :sidebar="$theme.sidebar" />
-          </transition>
-        </b-row>
-      </b-container>
-    </main>
+          </b-row>
+        </b-container>
+      </main>
 
-    <!-- #wp-footer -->
-    <b-footer id="wp-footer" />
-  </main>
+      <!-- #wp-footer -->
+      <b-footer id="wp-footer" />
+    </main>
+  </transition>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
 import { configMathJax } from '@/common/js/mathjax';
 import { IContext } from '@/store';
-import { FETCH_META, FETCH_DETAILABLE_TARGET } from '@/store/types';
 import { ISidebarItemConfig } from '@/models/theme';
+import { FETCH_META, FETCH_DETAILABLE_TARGET } from '@/store/types';
 import BHeader from '@/components/header/BHeader.vue';
 import BFooter from '@/components/footer/BFooter.vue';
 import BSidebar from '@/components/sidebar/BSidebar.vue';
@@ -50,15 +50,7 @@ import BSidebar from '@/components/sidebar/BSidebar.vue';
   components: { BHeader, BFooter, BSidebar },
 })
 export default class Layout extends Vue {
-  private sidebarReady: boolean = false;
-
-  private showSidebar() {
-    return (
-      this.sidebarReady &&
-      this.$theme.sidebar &&
-      this.$theme.sidebar.length
-    );
-  }
+  private ready: boolean = false;
 
   // fetch initial global data
   private async asyncData({ store }: IContext) {
@@ -84,9 +76,18 @@ export default class Layout extends Vue {
     if (!val || val.length < 1) {
       return;
     }
-    this.sidebarReady = true;
+    this.ready = true;
   }
 }
 </script>
 
 <style src="@/common/stylus/style.styl" lang="stylus"></style>
+<style lang="stylus" scoped>
+.rubik
+  width 64px
+  height 64px
+  position absolute
+  left 50%
+  top 50%
+  transform translate(-50%, -50%)
+</style>
