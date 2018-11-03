@@ -2,12 +2,23 @@
 
 # Amber
 
-[![Build Status](https://travis-ci.org/Mitscherlich/hexo-theme-amber.svg?branch=master)](https://travis-ci.org/Mitscherlich/hexo-theme-amber)
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Build Status][ci-badge]][ci-url]
+[![GitHub Issues][issues-badge]][issues-url]
+[![GitHub pull requests][pr-badge]][pr-url]
+[![MIT License][license-badge]](LICENSE)
+
+[ci-badge]: https://travis-ci.org/Mitscherlich/hexo-theme-amber.svg?branch=master
+[ci-url]: https://travis-ci.org/Mitscherlich/hexo-theme-amber
+[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[issues-badge]: https://img.shields.io/github/issues/Mitscherlich/hexo-theme-amber.svg
+[issues-url]: https://github.com/Mitscherlich/hexo-theme-amber/issues
+[pr-badge]: https://img.shields.io/github/issues-pr/Mitscherlich/hexo-theme-amber.svg
+[pr-url]: https://github.com/Mitscherlich/hexo-theme-amber/pulls
+
 
 Hexo theme based on Vue.js and Bootstrap for [mitscherlich.me](https://mitscherlich.me).
 
-![Preview](docs/assets/Preview.png)
+![Preview](https://raw.githubusercontent.com/Mitscherlich/hexo-theme-amber/master/docs/assets/Preview.png)
 
 > **⚠️ Note:** This theme cannot be use as a individual Vue.js spa. You need to setup a Hexo blog.
 
