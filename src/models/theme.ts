@@ -141,16 +141,20 @@ async function normalizeSidebarConfig(raw?: any): Promise<ISidebarItemConfig[]> 
           let only;
           let component;
           if (item === null) {
-            component = (await import(`@/components/partials/widgets/${text}Card.vue`)).default;
+            const module = await import(`@/components/sidebar/widgets/${text}Card.vue`);
+            component = module.default;
           } else if (typeof item === 'boolean') {
-            component = item ? (await import(`@/components/partials/widgets/${text}Card.vue`)).default : null;
+            const module = await import(`@/components/sidebar/widgets/${text}Card.vue`);
+            component = item ? module.default : null;
           } else if (typeof item === 'string') {
-            component = (await import(`@/components/partials/widgets/${(text = item)}Card.vue`)).default;
+            const module = await import(`@/components/sidebar/widgets/${(text = item)}Card.vue`);
+            component = module.default;
           } else if (typeof item === 'object') {
             if (item.hasOwnProperty('only')) {
               only = item.only;
             }
-            component = (await import(`@/components/partials/widgets/${text}Card.vue`)).default;
+            const module = await import(`@/components/sidebar/widgets/${text}Card.vue`);
+            component = module.default;
           }
           flatten.push({ text, type, only, component });
         }

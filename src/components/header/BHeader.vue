@@ -11,7 +11,7 @@
           </transition>
         </div>
         <div class="header-breadcurmb col pt-1 d-none d-md-block d-lg-block">
-          <a v-if="$theme.rss !== false" class="text-muted cursor-pointer mr-2" :href="$theme.rss">
+          <a v-if="$theme.rss !== false" class="text-muted cursor-pointer mr-2" :href="$theme.rss" target="_blank">
             <i class="fas fa-rss"></i>
             {{ $t('subscribe') }}
           </a>
@@ -38,8 +38,8 @@ import { Component, Watch, Vue } from 'vue-property-decorator';
 import { fetchPostsList } from '@/api/hexo';
 import { Post } from '@/models/post';
 import { IContext } from '@/store';
-import Carousel from './carousel/Carousel.vue';
-import Navbar from './navbar/Navbar.vue';
+import Carousel from './Carousel.vue';
+import Navbar from './Navbar.vue';
 import SearchBox from './SearchBox.vue';
 
 @Component({
