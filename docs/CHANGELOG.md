@@ -5,7 +5,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-
 ### TODO
 
 - [x] Custom 404 page
@@ -15,14 +14,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [ ] TOC support ([#1](https://github.com/Mitscherlich/hexo-theme-amber/issues/1))
 - [x] Releasing package
 
+## [v0.0.0-rc.7] - 2018-11-07
+### Changed
+- Reorganized the directory structure
+
 ## [v0.0.0-rc.6] - 2018-10-31
 ### Added
 - **Add tag dplayer support**
 
 ## [v0.0.0-rc.5] - 2018-10-23
 ### Changed
-- Significantly reduced packaged size: **Reduced to the original quarter!**
-- Refactoring some components to unify style
+- Significantly reduced packaged size: **only 256kb before gzip!**
+- Refactored some components
 
 ## [v0.0.0-rc.4] - 2018-10-17
 ### Changed
