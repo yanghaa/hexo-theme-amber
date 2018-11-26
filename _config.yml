@@ -37,12 +37,12 @@ social_icon: true
 # Usage: https://fontawesome.com/icons?d=gallery&s=brands&m=free
 # Everything you can find a brands icon of font-awesome is ok.
 social:
-  # facebook:
-  #   link: ...
-  #   icon: facebook
-  # github:
-  #   link: ...
-  #   icon: github-alt
+  facebook:
+    link: https://www.facebook.com/yang.young.shuai
+    icon: facebook
+  github:
+    link: https://www.github.com/yanghaa
+    icon: github-alt
   # twitter:
   #   link: ...
   #   icon: twitter
@@ -86,13 +86,13 @@ mathjax: true # false for disable mathjax
 # Gitalk
 # Usage: https://github.com/gitalk/gitalk#usage
 gitalk:
-  enable: false # true for enable gitlak
+  enable: true # true for enable gitlak
   # owner: ...
   # admin:
   #   - ...
   # repo: ...
-  # client_id: ...
-  # client_secret: ...
+  client_id: 00a48e0156f8678f0b32
+  client_secret: 0bb6afc5c4efbc73b4e7ed0fd9c63a2a7c4ae454
   # lazy: false
 
 poowered_by:
